@@ -1,0 +1,8 @@
+{
+  "name": "search-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "docker-compose -f docker-compose.yml --project-name search up --remove-orphans"
+  }
+}

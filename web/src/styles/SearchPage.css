@@ -1,0 +1,286 @@
+@keyframes fade-anim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.Background {
+  width: 100%;
+  height: 100vh;
+  background: #ffffff;
+}
+
+.Navigation {
+  width: 100%;
+  background: #021c39;
+  height: 80px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.LogInButton {
+  all: unset;
+
+  border: 1px solid #021c39;
+  width: 100px;
+  height: 32px;
+  font-size: 16px;
+  color: #021c39;
+  border-radius: 4px;
+  background: #ffffff;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.6s;
+
+  animation-name: fade-anim;
+  animation-duration: 0.6s;
+
+  margin-right: 8px;
+}
+
+.LogInButton:hover {
+  opacity: 0.8;
+}
+
+.SignUpButton {
+  all: unset;
+
+  border: 1px solid #0762c9;
+  width: 100px;
+  height: 32px;
+  font-size: 16px;
+  color: #ffffff;
+  border-radius: 4px;
+  background: #0762c9;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.6s;
+
+  animation-name: fade-anim;
+  animation-duration: 0.6s;
+
+  margin-right: 24px;
+}
+
+.SignUpButton:hover {
+  opacity: 0.8;
+}
+
+.WelcomeTitle {
+  color: #ffffff;
+  font-size: 20px;
+  margin: 0px;
+
+  animation-name: fade-anim;
+  animation-duration: 0.6s;
+}
+
+@media all and (max-width: 500px) {
+  .WelcomeTitle {
+    display: none;
+  }
+}
+
+.Empty {
+  width: 112px;
+}
+
+.Search {
+  width: 100%;
+  padding: 40px 0px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.SearchForm {
+  height: 40px;
+  width: 80%;
+  opacity: 0;
+
+  display: flex;
+  flex-direction: row;
+
+  animation-name: fade-anim;
+  animation-duration: 0.6s;
+  animation-delay: 0.4s;
+  animation-fill-mode: forwards;
+}
+
+@media all and (max-width: 500px) {
+  .SearchForm {
+    flex-direction: column;
+    height: auto;
+  }
+}
+
+.SearchTitle {
+  font-size: 24px;
+  color: #021c39;
+  text-align: center;
+  margin: 0px;
+  margin-bottom: 24px;
+  opacity: 0;
+
+  animation-name: fade-anim;
+  animation-duration: 0.6s;
+  animation-delay: 0.4s;
+  animation-fill-mode: forwards;
+}
+
+.SearchInput {
+  flex: auto;
+  border: 1px solid #021c39;
+  height: Calc(100% - 2px);
+  color: #021c39;
+  border-radius: 4px;
+  margin: 0px 8px 0px 0px;
+
+  padding: 0px 4px 0px 8px;
+}
+
+@media all and (max-width: 500px) {
+  .SearchInput {
+    margin: 0px;
+    height: 40px;
+  }
+}
+
+.SearchSelect {
+  width: 160px;
+  cursor: pointer;
+  color: #021c39;
+  border: 1px solid #021c39;
+  height: 100%;
+  margin-right: 8px;
+  border-radius: 4px;
+  padding: 0px 4px;
+}
+
+@media all and (max-width: 500px) {
+  .SearchSelect {
+    margin-top: 24px;
+    margin-right: 0px;
+    width: 100%;
+    height: 40px;
+  }
+}
+
+.SearchButton {
+  all: unset;
+  border: 1px solid #021c39;
+  height: Calc(100% - 2px);
+  font-size: 16px;
+  margin: 0px;
+  width: 38px;
+  height: 38px;
+  color: #021c39;
+  border-radius: 4px;
+  background: #ffffff;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media all and (max-width: 500px) {
+  .SearchButton {
+    align-self: center;
+    justify-self: center;
+    margin-top: 24px;
+  }
+}
+
+.SearchImage {
+  background-color: transparent;
+  width: 32px;
+  height: 32px;
+}
+
+.SearchButton:hover {
+  background: #021c39;
+  color: #ffffff;
+}
+
+.ErrorText {
+  font-size: 16px;
+  color: #800000;
+}
+
+.lds-ellipsis-blue {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  justify-self: center;
+}
+.lds-ellipsis-blue div {
+  position: absolute;
+  top: 33px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #021c39;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis-blue div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis-blue1 0.6s infinite;
+}
+.lds-ellipsis-blue div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis-blue2 0.6s infinite;
+}
+.lds-ellipsis-blue div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis-blue2 0.6s infinite;
+}
+.lds-ellipsis-blue div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis-blue3 0.6s infinite;
+}
+@keyframes lds-ellipsis-blue1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis-blue3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis-blue2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
+}
+
+.MovieGrid {
+  width: 90%;
+  max-width: 2000px;
+  margin: 40px 0px;
+  justify-content: center;
+  align-items: flex-start;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, 360px);
+}

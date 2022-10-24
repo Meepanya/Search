@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "checkJs": false,
+    "typeRoots": [
+      "src/customTypings",
+      "node_modules/@types"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "jsx": "preserve",
+    "module": "esnext",
+    "outDir": "dist",
+    "target": "es2017",
+    "isolatedModules": true,
+    "noEmit": true,
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowSyntheticDefaultImports": true
+  },
+  "exclude": [
+    "./node_modules",
+    "./not-published-articles"
+  ],
+  "include": [
+    "**/*.ts",
+    "**/*.js",
+    "**/*.tsx"
+  ]
+}
