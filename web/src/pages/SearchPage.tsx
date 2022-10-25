@@ -8,6 +8,7 @@ import Movie from '../components/MovieCard';
 
 const firstMovieEverYear = 1888;
 const thisYear = new Date().getFullYear();
+const delay = 500;
 
 const SearchPage: React.FunctionComponent = () => {
   const navigate = useNavigate();
@@ -18,6 +19,9 @@ const SearchPage: React.FunctionComponent = () => {
   const [search, setSearch] = useState('');
   const [type, setType] = useState(null);
   const [year, setYear] = useState(null);
+
+  const [timer, setTimer] = useState(false);
+  const [timerInstance, setTimerInstance] = useState(null);
 
   const [isFetcing, setFetching] = useState(false);
   const [isDisabled, setDisabled] = useState(false);
@@ -74,10 +78,39 @@ const SearchPage: React.FunctionComponent = () => {
     if (error !== '' && search !== '') {
       setError('');
     }
+
+    if (search === '') {
+      return;
+    }
+
+    let timeoutState = timer;
+
+    if (search !== '' && timer) {
+      clearTimeout(timerInstance);
+      setTimer(false);
+      timeoutState = false;
+    }
+
+    if (!timeoutState) {
+      setTimer(true);
+      const timerInstance = setTimeout(() => {
+        handleSubmit(null);
+        setTimer(false);
+      }, delay);
+      setTimerInstance(timerInstance);
+    }
   }, [search]);
 
+  useEffect(() => {
+    if (search === '') {
+      return;
+    }
+
+    handleSubmit(null);
+  }, [year, type]);
+
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e?.preventDefault();
     setMovies([]);
     setError('');
     setFetching(true);
@@ -184,6 +217,7 @@ const SearchPage: React.FunctionComponent = () => {
             onChange={(e) => {
               if (!user) {
                 setDisabled(true);
+                setError('You should log in to use search.');
                 return;
               }
 
@@ -199,6 +233,7 @@ const SearchPage: React.FunctionComponent = () => {
             onChange={(e) => {
               if (!user) {
                 setDisabled(true);
+                setError('You should log in to use search.');
                 return;
               }
 
@@ -224,6 +259,7 @@ const SearchPage: React.FunctionComponent = () => {
             onChange={(e) => {
               if (!user) {
                 setDisabled(true);
+                setError('You should log in to use search.');
                 return;
               }
 
@@ -237,9 +273,9 @@ const SearchPage: React.FunctionComponent = () => {
             {(years() || []).map((year) => year)}
           </select>
 
-          <button type="submit" className="SearchButton">
+          {/* <button type="submit" className="SearchButton">
             <img className="SearchImage" src="/search.png" alt="Search" />
-          </button>
+          </button> */}
         </form>
 
         {error && <p className="ErrorText">{error}</p>}
